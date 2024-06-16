@@ -1,16 +1,19 @@
 use std::io;
+user rand::Rng;
 
 fn main() {
     println!("Guess the number!");
 
+    let secret_number = rand::thread_rng().gen_range(1..=100);
+
     println!("Please input your guess.");
 
-    let mut guess = String::new();
+    let mut guess = String::new();// в русте переменные не изменяемы, мут даёт возможность менять значения в переменных
 
     io::stdin()
         .read_line(&mut guess)
         .expect("Failed to read line");
     
-    println!("You guessed: {}", guess);
+    println!("You guessed: {guess}");
 
 }
